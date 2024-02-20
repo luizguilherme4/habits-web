@@ -36,7 +36,7 @@ export function HabitsList({ date, onCompletedChange }: HabitsListProps) {
 
     let completedHabits: string[] = [];
 
-    if(isHabitAlreadyCompleted){
+    if (isHabitAlreadyCompleted) {
       completedHabits = habitsInfo!.completedHabits.filter(id => id !== habitId)
     } else {
       completedHabits = [...habitsInfo!.completedHabits, habitId]
@@ -58,12 +58,12 @@ export function HabitsList({ date, onCompletedChange }: HabitsListProps) {
         return (
           <Checkbox.Root
             key={habit.id}
-            onCheckedChange={() => handleToggleHabit(habit.id)} 
+            onCheckedChange={() => handleToggleHabit(habit.id)}
             checked={habitsInfo.completedHabits.includes(habit.id)}
             disabled={isDateInPast}
             className="flex items-center gap-3 group"
           >
-            <div className="h-8 w-8 rounded-lg flex items-center justify-center bg-zinc-900 border-2 border-zinc-800 group-data-[state=checked]:bg-green-500 group-data-[state=checked]:border-green-500">
+            <div className="h-8 w-8 rounded-lg flex items-center justify-center bg-zinc-900 border-2 border-zinc-800 group-data-[state=checked]:bg-green-500 group-data-[state=checked]:border-green-500 transition-colors">
               <Checkbox.Indicator>
                 <Check size={20} className="text-white" />
               </Checkbox.Indicator>
